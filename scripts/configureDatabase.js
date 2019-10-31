@@ -1,15 +1,14 @@
 const mysql = require('mysql2/promise');
 
-const dbName = "medwing";
+const dbName = 'medwing';
 
 mysql.createConnection({
-    host:      "127.0.0.1",
-    port:      "3306",
-    user     : "root",
-    password : "admin",
-}).then( connection => {
-    connection.query(`CREATE DATABASE IF NOT EXISTS ${dbName};`).then((res) => {
-        console.info("Database create or successfully checked");
-        process.exit(0);
-    })
-})
+  host: '127.0.0.1',
+  port: '3306',
+  user: 'root',
+  password: 'admin',
+}).then((connection) => {
+  connection.query(`CREATE DATABASE IF NOT EXISTS ${dbName};`).then(() => {
+    process.exit(0);
+  });
+});

@@ -1,4 +1,3 @@
-'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const Markers = sequelize.define('Markers', {
@@ -6,33 +5,30 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     name: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     description: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     place_id: {
       allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     lng: {
       allowNull: false,
-      type: DataTypes.DOUBLE
+      type: DataTypes.DOUBLE,
     },
     lat: {
       allowNull: false,
-      type: DataTypes.DOUBLE
-    }
+      type: DataTypes.DOUBLE,
+    },
   }, {
-    timestamps: false
+    timestamps: false,
   });
-  Markers.associate = function(models) {
-    // associations can be defined here
-  };
   return Markers;
 };
