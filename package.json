@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon index.js",
-    "init:sequelize": "sequelize init",
+    "migrate:configure_db": "node scripts/configureDatabase.js",
     "migrate:sequelize": "sequelize db:migrate"
   },
   "dependencies": {
