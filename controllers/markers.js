@@ -12,7 +12,7 @@ module.exports = {
     const {
       name,
       description,
-      placeId,
+      place_id,
       lat,
       lng
     } = body;
@@ -24,7 +24,7 @@ module.exports = {
       });
     }
 
-    if (!placeId) {
+    if (!place_id) {
       return res.status(400).send({
         message: "Please pass place id...",
         code: "T003"
@@ -57,7 +57,7 @@ module.exports = {
     return Markers.create({
       name: name,
       description: description,
-      placeId: placeId,
+      place_id: place_id,
       lat: lat,
       lng: lng,
       createdAt: new Date(),
@@ -85,7 +85,8 @@ module.exports = {
   },
   update (req, res) {
     const id = req.params.id;
-    const placeId = req.body.placeId;
+    const place_id = req.body.place_id;
+    const name = req.body.name;
     const lat = req.body.lat;
     const lng = req.body.lng;
     const description = req.body.description;
@@ -105,7 +106,7 @@ module.exports = {
       });
     }
 
-    if (!placeId) {
+    if (!place_id) {
       return res.status(400).send({
         message: "Please pass place id...",
         code: "T003"
@@ -135,11 +136,12 @@ module.exports = {
 
     return Markers.update(
       {
-      placeId: placeId,
-      lat: lat,
-      lng: lng,
-      description: description,
-      updatedAt:updatedAt
+        name: name,
+        place_id: place_id,
+        lat: lat,
+        lng: lng,
+        description: description,
+        updatedAt:updatedAt
       },
       {
         returning: true,
@@ -148,10 +150,14 @@ module.exports = {
         }
       }
     )
+    .then(() => {
+      return Markers.findByPk(id);
+    })
     .then((result) => {
-      res.status(200).send(result);
+      return res.status(200).send(result);
     })
     .catch((error) => {
+      console.log("Error in put", error);
       res.status(400).send(error);
     })
   },

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
-    placeId: {
+    place_id: {
       allowNull: false,
       type: DataTypes.STRING
     },
@@ -27,16 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     lat: {
       allowNull: false,
       type: DataTypes.DOUBLE
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: true,
-      type: DataTypes.DATE
     }
-  }, {});
+  }, {
+    timestamps: false
+  });
   Markers.associate = function(models) {
     // associations can be defined here
   };

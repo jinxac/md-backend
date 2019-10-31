@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      placeId: {
+      place_id: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -27,14 +27,6 @@ module.exports = {
       lat: {
         allowNull: false,
         type: Sequelize.DOUBLE
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
       }
     });
   },
