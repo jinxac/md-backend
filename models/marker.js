@@ -1,6 +1,5 @@
-
 module.exports = (sequelize, DataTypes) => {
-  const Markers = sequelize.define('Markers', {
+  const Markers = sequelize.define('Marker', {
     id: {
       allowNull: false,
       autoIncrement: true,

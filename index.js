@@ -4,12 +4,6 @@ const bodyparser = require('body-parser');
 const app = express();
 // Configuring express server
 app.use(bodyparser.json());
-
-
-const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Listening on port ${port}..`));
-
-
 const models = require('./models');
 
 models.sequelize.sync()
@@ -25,3 +19,6 @@ app.get('*', (req, res) => {
     message: 'No End point',
   });
 });
+
+const port = process.env.PORT || 8080;
+module.exports = app.listen(port, () => console.log(`Listening on port ${port}..`));

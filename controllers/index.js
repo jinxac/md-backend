@@ -1,5 +1,5 @@
-const markers = require('./markers');
+const marker = require('./marker');
 
 module.exports = {
-  markers,
+  marker,
 };

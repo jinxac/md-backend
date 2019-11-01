@@ -1,4 +1,4 @@
-const { Markers } = require('../models');
+const { Marker } = require('../models');
 
 module.exports = {
   create(req, res) {
@@ -56,7 +56,7 @@ module.exports = {
     }
 
 
-    return Markers.create({
+    return Marker.create({
       name,
       description,
       /* eslint-disable */
@@ -75,7 +75,7 @@ module.exports = {
       });
   },
   get(req, res) {
-    return Markers.findAll()
+    return Marker.findAll()
       .then((markers) => {
         res.status(200).send(markers);
       })
@@ -139,7 +139,7 @@ module.exports = {
       });
     }
 
-    return Markers.update(
+    return Marker.update(
       {
         name,
         place_id,
@@ -155,7 +155,7 @@ module.exports = {
         },
       },
     )
-      .then(() => Markers.findByPk(id))
+      .then(() => Marker.findByPk(id))
       .then((result) => res.status(200).send(result))
       .catch((error) => {
         res.status(400).send(error);
@@ -169,7 +169,7 @@ module.exports = {
         code: 'T007',
       });
     }
-    return Markers.destroy({
+    return Marker.destroy({
       where: {
         id,
       },
