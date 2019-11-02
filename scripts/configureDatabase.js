@@ -1,12 +1,14 @@
 const mysql = require('mysql2/promise');
+const env = process.env.ENVIRONMENT || 'development';
+const config = require('../config/config')[env];
 
-const dbName = process.env.DB_NAME || 'medwing';
+const dbName = config.database;
 
 mysql.createConnection({
-  host: process.env.DB_HOST || '127.0.0.1',
-  port: process.env.DB_PORT || '3306',
-  user: process.env.DB_USERNAME  || 'root',
-  password: process.env.DB_PASSWORD || 'admin',
+  host: config.host,
+  port: '3306',
+  user: config.username,
+  password: config.password,
 }).then((connection) => {
   connection.query(`CREATE DATABASE IF NOT EXISTS ${dbName};`).then(() => {
     process.exit(0);

@@ -4,12 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js",
-    "migrate:configure_db": "node scripts/configureDatabase.js",
-    "migrate:sequelize": "sequelize db:migrate",
+    "start": "sh scripts/startServer.sh",
     "lint": "yarn eslint .",
     "lint:fix": "yarn eslint . --fix",
-    "test": "jest"
+    "test": "sh scripts/runTests.sh"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

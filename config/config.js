@@ -1,20 +1,31 @@
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config({ path: path.resolve(__dirname, `../config/${process.env.ENVIRONMENT}.env`) });
 
 module.exports = {
-  "development": {
-    "username": process.env.DB_USERNAME || "root",
-    "password": process.env.DB_PASSWORD || "admin",
-    "database": process.env.DB_NAME || "medwing",
-    "host": process.env.DB_HOST || "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+  development: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    operatorsAliases: false,
   },
-  "test": {
-    "username": process.env.DB_USERNAME || "root",
-    "password": process.env.DB_PASSWORD || "admin",
-    "database": process.env.DB_NAME || "medwing",
-    "host": process.env.DB_HOST || "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  }
-}
+  production: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    operatorsAliases: false,
+  },
+  test: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    operatorsAliases: false,
+  },
+};
