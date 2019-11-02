@@ -43,3 +43,7 @@
 	The test cases cover following:-
 	1. Models
 	2. Controllers
+
+# Points to take care of
+
+1. I was facing an issue with mysql, [this](https://github.com/mysqljs/mysql/issues/1574#issuecomment-388464975) answer helped.
