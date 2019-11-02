@@ -30,7 +30,7 @@ describe('/GET marker', () => {
       .post('/api/v0/markers')
       .send(marker)
       .end((err, res) => {
-        expect(res.status).toEqual(201);
+        expect(res.status).toEqual(200);
         expect(typeof res.body).toBe('object');
         expect(res.body.name).toEqual(marker.name);
         expect(res.body.description).toEqual(marker.description);

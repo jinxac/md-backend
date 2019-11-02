@@ -68,7 +68,7 @@ module.exports = {
       updatedAt: null,
     })
       .then((marker) => {
-        res.status(201).send(marker);
+        res.status(200).send(marker);
       })
       .catch((error) => {
         res.status(400).send(error);
