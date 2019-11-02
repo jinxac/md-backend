@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "sh scripts/startServer.sh",
+    "start": "sh scripts/startDevelopment.sh",
+    "start:prod": "sh scripts/startProduction.sh",
     "lint": "yarn eslint .",
     "lint:fix": "yarn eslint . --fix",
     "test": "sh scripts/runTests.sh"

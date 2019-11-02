@@ -6,7 +6,7 @@ const dbName = config.database;
 
 mysql.createConnection({
   host: config.host,
-  port: '3306',
+  port: config.port,
   user: config.username,
   password: config.password,
 }).then((connection) => {

@@ -4,21 +4,11 @@
 
 2. Run `yarn install` to install packages
 
-3. The file config/config.js has information related to database configuration. The current credentials for the database are set according to my local. If required, you can change the parameters using following environment variables :-
-	1.  **Host**: `process.env.DB_HOST  `
-	2.  **Port**: `process.env.DB_PORT`
-	3.  **Database Name**: `process.env.DB_NAME`
-	4.  **UserName**: `process.env.DB_USERNAME`
-	5.  **Password**: `process.env.DB_PASSWORD`
+3. The file config/[env].env has information related to database configuration related to local, development and production. The current credentials for the database are set according to my local. If required, you can change the variables inside [env].env file to make it work
 
-	Once db values are set, please proceed to next step.
-4. Run `yarn migrate:configure_db` to setup database.
+4. Run `yarn start` to configure the database, sync latest migrations and start the server.
 
-5. Run `yarn migrate:sequelize` to create tables.
-
-6. Run `yarn start` to start the server.
-
-7. Run `yarn test` to run the test cases
+5. Run `yarn test` to setup test environment to run the test cases.
 
 # Design
 
